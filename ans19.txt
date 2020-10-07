@@ -1,0 +1,5 @@
+Scarlet: []
+Travis: [1, 7, 1, 1]
+Decoded passcode: | 1 | 1 | 7 |
+Actual passcode: | 1 | 1 | 7 |
+Treasure unlocked!

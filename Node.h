@@ -12,10 +12,10 @@ class Node
 {
 public:
 	Node* previous = nullptr;
+	int evaluated = -9999999;
 	Node* next = nullptr;
 
 	string expression = "";
-	int evaluated = -9999999;
 
 	bool expressionIsGood = 0;
 

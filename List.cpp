@@ -153,7 +153,7 @@ void List::insert(Node*& left, Node*& right)
 	}
 	if (right->next == nullptr) //right is the tail, don't need to change right->next->previous
 	{
-		right->previous->next = nullptr;
+		oRp->next = nullptr;
 		tail = oRp;
 	}
 	else //right isn't the tail, we need to change right->next->previous
@@ -256,6 +256,8 @@ void List::rBvH1(Node* cur, stack<int>& removables)
 		cur = head;
 		rBvH1(cur, removables);
 	}
+	if (cur == nullptr) return;
+	//else...
 	rBvH1(cur->next, removables);
 }
 
@@ -315,6 +317,8 @@ void List::rBvH2_1(Node* cur, stack<int>& removables, List& second)
 			delete deleteMe;
 		}
 		removables.pop(); //removes the item in removables if cur->evaluted is the same as removeables.top();
+		cur = second.getHead();
+		rBvH2_1(cur, removables, second);
 	}
 	rBvH2_1(cur->next, removables, second);
 }

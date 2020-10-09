@@ -26,7 +26,11 @@ int main(int argc, char** argv)
 	else
 	{
 		string line;
-		getline(read, line);
+		while (line.empty())
+		{
+			getline(read, line);
+		}
+		//getline(read, line);
 		while (passcode == "")
 		{
 			if (line == "Scarlet") //we are working on Scarlet's linked list
@@ -35,7 +39,7 @@ int main(int argc, char** argv)
 				{
 					getline(read, line);
 
-					if(line != "Travis" && line[0] != 'P')
+					if (line != "Travis" && line[0] != 'P')
 						Scarlet.adder(line);
 				}
 			}
@@ -59,14 +63,14 @@ int main(int argc, char** argv)
 				read >> passcode;
 				*/
 			}
-				
+
 		}
 
 		//make a linked list out of passcode
 		List Passcode;
 		for (int i = 0; i < passcode.length(); ++i)
 		{
-			if(isdigit(passcode[i]))
+			if (isdigit(passcode[i]))
 			{
 				string num = "";
 				num += passcode[i];
@@ -140,7 +144,7 @@ int main(int argc, char** argv)
 		}
 
 		//remove the node a the position of invalid count
-		if(Combined.getInvalidCount() > 0)
+		if (Combined.getInvalidCount() > 0)
 			Combined.removeByPos(Combined.getInvalidCount());
 		{
 			cout << endl;
@@ -149,7 +153,7 @@ int main(int argc, char** argv)
 				cout << cur->evaluated << " ";
 			cout << endl;
 		}
-		
+
 		ofstream write(outputFile.c_str());
 		if (!write.is_open()) cout << "Output file did not open properly.\n";
 		else
@@ -158,11 +162,11 @@ int main(int argc, char** argv)
 			Scarlet.printLinkedList(write, Scarlet.getHead());
 			write << "Travis: ";
 			Travis.printLinkedList(write, Travis.getHead());
-			
+
 			Combined.printTreasureCode(write, Combined.getHead());
 			Passcode.printActualCode(write, Passcode.getHead());
 			Combined.comparePasscode(write, passcode, Combined.getHead());
-			
+
 		}
 	}
 

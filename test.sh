@@ -87,20 +87,20 @@ else
     # remove the file 4.diff
     rm -f 4.diff
 fi
-# For test case 6
-# input 16.txt and output 16.out
-./${program} "input=input${group}6.txt;output=output${group}6.txt" 1>1.stdcout 2>1.stderr
-# compare 6.out with 6.ans, output the difference to 6.diff
-diff -iEBwu ans${group}6.txt output${group}6.txt > 6.diff
-# if diff returns nothing, it means you pass the test case (Your ourput file 6.out is correct)
+# For test case 5
+# input 15.txt and output 15.out
+./${program} "input=input${group}5.txt;output=output${group}5.txt" 1>1.stdcout 2>1.stderr
+# compare 5.out with 5.ans, output the difference to 5.diff
+diff -iEBwu ans${group}5.txt output${group}5.txt > 5.diff
+# if diff returns nothing, it means you pass the test case (Your ourput file 5.out is correct)
 if [ $? -ne 0 ]; then
-    # display "Test case 6 FAILED" to the screen. The word "FAILED" is highlighted in Red color
-    echo -e "Test case 6    \033[1;91mFAILED.\033[0m"
+    # display "Test case 5 FAILED" to the screen. The word "FAILED" is highlighted in Red color
+    echo -e "Test case 5    \033[1;91mFAILED.\033[0m"
 else
-    # display "Test case 6 PASSED" to the screen. The word "PASSED" is highlighted in Green color
-    echo -e "Test case 6    \033[1;92mPASSED.\033[0m"
-    # remove the file 6.diff
-    rm -f 6.diff
+    # display "Test case 5 PASSED" to the screen. The word "PASSED" is highlighted in Green color
+    echo -e "Test case 5    \033[1;92mPASSED.\033[0m"
+    # remove the file 5.diff
+    rm -f 5.diff
 fi
 # For test case 7
 # input 17.txt and output 17.out
